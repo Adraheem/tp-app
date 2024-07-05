@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Ember;
+    src: url("asssets/fonts/ember/AmazonEmberDisplay_Rg.ttf");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: Ember;
+    src: url("asssets/fonts/ember/AmazonEmberDisplay_Md.ttf");
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: Ember;
+    src: url("asssets/fonts/ember/AmazonEmberDisplay_Bd.ttf");
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: Ember;
+    src: url("asssets/fonts/ember/AmazonEmberDisplay_He.ttf");
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: Ember;
+    src: url("asssets/fonts/ember/AmazonEmberDisplay_Lt.ttf");
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  html {
+    @apply bg-[#f2f3f3] leading-[1.5];
+    font-size: 14px;
+  }
+
+  a:not(.link-reset) {
+    @apply text-primary hover:underline;
+  }
+
+  h1 {
+    @apply typo-h1;
+  }
+
+  h2 {
+    @apply typo-h2;
+  }
+
+  h3 {
+    @apply typo-h3;
+  }
+
+  h4 {
+    @apply typo-h4;
+  }
+
+  h5 {
+    @apply typo-h5;
+  }
+
+  h6 {
+    @apply typo-h6;
+  }
+
+  p {
+    @apply typo-body;
+  }
+
+  small {
+    @apply typo-small;
+  }
+}
+
+@layer components {
+  .typo-h1 {
+    font-size: 3.815rem;
+  }
+
+  .typo-h2 {
+    font-size: 3.052rem;
+  }
+
+  .typo-h3 {
+    font-size: 2.441rem;
+  }
+
+  .typo-h4 {
+    font-size: 1.953rem;
+  }
+
+  .typo-h5 {
+    font-size: 1.563rem;
+  }
+
+  .typo-h6 {
+    font-size: 1.25rem;
+  }
+
+  .typo-body {
+    font-size: 1rem;
+  }
+
+  .typo-small {
+    font-size: 0.8rem;
+  }
+
+  .typo-caption {
+    font-size: 0.64rem;
+  }
+}
