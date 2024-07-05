@@ -112,4 +112,31 @@
   .typo-caption {
     font-size: 0.64rem;
   }
+
+  // TABLE
+  .table_c {
+    @apply block w-full relative overflow-x-auto;
+
+    &__main {
+      @apply w-full text-left text-zinc-800;
+    }
+
+    &__head {
+      @apply typo-body text-zinc-800 bg-zinc-50 border border-l-0 border-r-0 border-zinc-200;
+
+      &__th {
+        @apply px-6 py-2 font-medium;
+      }
+    }
+
+    &__body {
+      &__tr {
+        @apply border-b border-zinc-200;
+      }
+    }
+
+    &__td {
+      @apply px-6 py-2 md:py-4;
+    }
+  }
 }
