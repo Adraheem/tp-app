@@ -21,8 +21,17 @@ module.exports = {
 
             },
             fontFamily: {
-                sans: ["Ember", "sans-serif"]
-            }
+                sans: ["Ember", "sans-serif"],
+            },
+            animation: {
+                enter: 'enter 200ms ease-out',
+            },
+            keyframes: {
+                enter: {
+                    '0%': {transform: 'scale(0.9)', opacity: 0},
+                    '100%': {transform: 'scale(1)', opacity: 1},
+                },
+            },
         },
     },
     plugins: [],

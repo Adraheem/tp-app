@@ -5,7 +5,7 @@ interface IProps extends React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTabl
 
 function Td({className, children, ...props}: IProps) {
   return (
-    <td scope="row" className={`table_c__td ${className}`} {...props}>
+    <td className={`table_c__td ${className}`} {...props}>
       {children}
     </td>
   );

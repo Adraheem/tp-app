@@ -1,14 +1,13 @@
 import React from 'react';
 import Container from "../../components/container";
 import Card from "../../components/card";
-import Button from "../../components/button";
-import {Icon} from "@iconify/react";
 import Table from "../../components/table";
 import Thead from "../../components/table/Thead";
 import Th from "../../components/table/Th";
 import TBody from "../../components/table/TBody";
 import Tr from "../../components/table/Tr";
 import Td from "../../components/table/Td";
+import CreateNew from "./createNew";
 
 interface IProps {
 }
@@ -19,10 +18,7 @@ function HomePage(props: IProps) {
       <Card>
         <div className="flex justify-between gap-10 items-center">
           <h4>Title here</h4>
-          <Button className="pl-3 gap-1">
-            <Icon icon="mdi:plus" width={24} height={24}/>
-            <span>Create new</span>
-          </Button>
+          <CreateNew/>
         </div>
 
         <div className="mt-7">

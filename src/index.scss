@@ -139,4 +139,18 @@
       @apply px-6 py-2 md:py-4;
     }
   }
+
+  .modal {
+    &-html {
+      @apply overflow-hidden;
+    }
+
+    &-overlay {
+      @apply w-[100vw] h-screen fixed z-50 bg-black bg-opacity-70 top-0 left-0 bottom-0 right-0 flex px-5 flex-col items-center outline-0;
+    }
+
+    &-body {
+      @apply my-auto w-auto max-w-full bg-white border border-zinc-200 drop-shadow-sm outline-0 animate-enter relative;
+    }
+  }
 }
