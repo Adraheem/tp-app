@@ -8,11 +8,16 @@ import TBody from "../../components/table/TBody";
 import Tr from "../../components/table/Tr";
 import Td from "../../components/table/Td";
 import CreateNew from "./createNew";
+import {Icon} from "@iconify/react";
+import Button from "../../components/button";
 
 interface IProps {
 }
 
 function HomePage(props: IProps) {
+  const handleDelete = (index: number) => {
+  }
+
   return (
     <Container className="py-10">
       <Card>
@@ -38,7 +43,22 @@ function HomePage(props: IProps) {
                   <Td>john@doe.com</Td>
                   <Td>+1364872672</Td>
                   <Td>Approved</Td>
-                  <Td>d</Td>
+                  <Td>
+                    <Button
+                      type="button"
+                      onClick={() => handleDelete(index)}
+                      className="pl-1 pr-1 aspect-square"
+                    >
+                      <Icon icon="tdesign:delete" width={20} height={20}/>
+                    </Button>
+                    <Button
+                      type="button"
+                      onClick={() => handleDelete(index)}
+                      className="pl-1 pr-1 aspect-square ml-2"
+                    >
+                      <Icon icon="tdesign:edit" width={20} height={20}/>
+                    </Button>
+                  </Td>
                 </Tr>
               ))}
             </TBody>

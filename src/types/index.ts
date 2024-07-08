@@ -14,3 +14,8 @@ export interface IRequest {
   requestStatus: RequestStatus;
   values: IValue[];
 }
+
+export interface ISelectValue {
+  value: any;
+  label: string | React.ReactNode | Date;
+}

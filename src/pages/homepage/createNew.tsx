@@ -12,6 +12,7 @@ import Th from "../../components/table/Th";
 import TBody from "../../components/table/TBody";
 import Tr from "../../components/table/Tr";
 import Td from "../../components/table/Td";
+import Select from "../../components/select";
 
 interface IProps {
 }
@@ -104,6 +105,13 @@ function CreateNew(props: IProps) {
                       />
                     )}
                   </Field>
+
+                  <Select
+                    label="Request status"
+                    placeholder="Request status"
+                    name="requestStatus"
+                    options={["APPROVED", "PENDING", "EXECUTED"].map(v => ({label: v, value: v}))}
+                  />
                 </div>
 
                 <FieldArray name="values">
