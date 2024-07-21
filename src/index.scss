@@ -115,7 +115,7 @@
 
   // TABLE
   .table_c {
-    @apply block w-full relative overflow-x-auto;
+    @apply block w-full relative border-l border-r overflow-x-auto;
 
     &__main {
       @apply w-full text-left text-zinc-800;
@@ -146,11 +146,39 @@
     }
 
     &-overlay {
-      @apply w-[100vw] h-screen fixed z-50 bg-black bg-opacity-70 top-0 left-0 bottom-0 right-0 flex px-5 flex-col items-center outline-0;
+      @apply w-[100vw] h-screen fixed z-50 bg-black bg-opacity-70 top-0 left-0 bottom-0 right-0 flex px-5 py-10 flex-col items-center outline-0 overflow-y-auto;
     }
 
     &-body {
       @apply my-auto w-auto max-w-full bg-white border border-zinc-200 drop-shadow-sm outline-0 animate-enter relative;
+    }
+  }
+
+  .approvals {
+    @apply flex flex-col-reverse gap-5 max-h-[70vh] overflow-y-auto p-5;
+
+    .approval {
+      @apply flex items-stretch gap-4;
+
+      & > div:nth-of-type(1) {
+        @apply relative;
+
+        &::before {
+          @apply content-[""] w-0.5 h-full absolute bg-gray-200 left-1/2 -translate-x-1/2 top-8 z-[0];
+        }
+
+        & > div {
+          @apply w-10 aspect-square rounded-full text-white flex items-center justify-center relative z-[2];
+        }
+      }
+
+      &:first-of-type > div:nth-of-type(1)::before {
+        @apply hidden;
+      }
+
+      & > div:nth-of-type(2) {
+        @apply flex-1;
+      }
     }
   }
 }

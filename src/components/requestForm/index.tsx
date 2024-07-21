@@ -1,23 +1,25 @@
 import React, {useState} from 'react';
 import {Icon} from "@iconify/react";
-import Button from "../../components/button";
-import Modal from "../../components/modal";
+import Button from "../button";
+import Modal from "../modal";
 import {Field, FieldArray, FieldProps, Form, Formik, FormikHelpers} from "formik";
 import * as yup from "yup";
-import Input from "../../components/input";
+import Input from "../input";
 import {IRequest, IValue} from "../../types";
-import Table from "../../components/table";
-import Thead from "../../components/table/Thead";
-import Th from "../../components/table/Th";
-import TBody from "../../components/table/TBody";
-import Tr from "../../components/table/Tr";
-import Td from "../../components/table/Td";
-import Select from "../../components/select";
+import Table from "../table";
+import Thead from "../table/Thead";
+import Th from "../table/Th";
+import TBody from "../table/TBody";
+import Tr from "../table/Tr";
+import Td from "../table/Td";
+import Select from "../select";
 
 interface IProps {
+  type?: "CREATE" | "UPDATE"
+  initialValue?: IRequest
 }
 
-function CreateNew(props: IProps) {
+function RequestForm({type = "CREATE", initialValue}: IProps) {
   const [isOpen, setOpen] = useState(false);
 
   const closeModal = () => {
@@ -40,7 +42,7 @@ function CreateNew(props: IProps) {
     selected: false,
   }
 
-  const initialValues: IRequest = {
+  const initialValues: IRequest = initialValue ?? {
     name: "",
     email: "",
     email1: "",
@@ -51,18 +53,34 @@ function CreateNew(props: IProps) {
   }
 
   const onSubmit = (values: IRequest, helpers: FormikHelpers<IRequest>) => {
+    // handle "create new" OR "update" based on the "type" above
+    console.log(values);
+    helpers.setSubmitting(false);
   }
 
   return (
     <>
       <Button className="pl-3 gap-1" onClick={() => setOpen(true)}>
-        <Icon icon="mdi:plus" width={24} height={24}/>
-        <span>Create new request</span>
+        {
+          type === "CREATE" ? (
+            <>
+              <Icon icon="mdi:plus" width={24} height={24}/>
+              <span>Create new request</span>
+            </>
+          ) : (
+            <>
+              <Icon icon="mdi:plus" width={24} height={24}/>
+              <span>Edit request</span>
+            </>
+          )
+        }
       </Button>
 
       <Modal isOpen={isOpen} close={closeModal}>
         <div className="w-screen max-w-5xl p-5">
-          <h4>Create new request</h4>
+          <h4>
+            {type === "CREATE" ? "Create new request" : "Edit request"}
+          </h4>
 
           <Formik
             initialValues={initialValues}
@@ -129,7 +147,7 @@ function CreateNew(props: IProps) {
 
                       <Table>
                         <Thead>
-                          <Th className="pl-0">Label</Th>
+                          <Th>Label</Th>
                           <Th className="pl-0">Value</Th>
                           <Th className="pl-0">Amount</Th>
                           <Th className="pl-0">Action</Th>
@@ -137,8 +155,8 @@ function CreateNew(props: IProps) {
 
                         <TBody>
                           {values.values.map((value, index) => (
-                            <Tr className="border-b-0">
-                              <Td className="pl-0">
+                            <Tr className="border-b-0" key={index}>
+                              <Td>
                                 <Field name={`values.${index}.label`}>
                                   {({field, meta}: FieldProps) => (
                                     <Input
@@ -209,4 +227,4 @@ function CreateNew(props: IProps) {
   );
 }
 
-export default CreateNew;
+export default RequestForm;

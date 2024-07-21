@@ -19,3 +19,11 @@ export interface ISelectValue {
   value: any;
   label: string | React.ReactNode | Date;
 }
+
+export interface IApproval {
+  id: number;
+  name: string;
+  username: string;
+  status: RequestStatus;
+  message: string;
+}
